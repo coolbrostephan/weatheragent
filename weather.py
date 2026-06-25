@@ -16,6 +16,9 @@ CAMP_END_DAY = 14
 today = date.today()
 current_year = today.year
 
+temp_c = current_temp
+temp_f = round(temp_c * 9/5 + 32, 1)
+
 def get_historical_weather(lat, lon, start_date, end_date):
     url = "https://archive-api.open-meteo.com/v1/archive"
     params = {
@@ -113,6 +116,4 @@ historical_df.to_csv("historical_weather.csv", index=False)
 forecast_df.to_csv("forecast_weather.csv", index=False)
 print("\nData saved to CSV files.")
 
-temp_c = current_temp
 
-temp_f = round(temp_c * 9/5 + 32, 1)
