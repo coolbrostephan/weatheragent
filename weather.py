@@ -12,6 +12,9 @@ CAMP_MONTH = 8
 CAMP_START_DAY = 1
 CAMP_END_DAY = 14
 
+today = date.today()
+current_year = today.year
+
 def get_historical_weather(lat, lon, start_date, end_date):
     url = "https://archive-api.open-meteo.com/v1/archive"
     params = {
@@ -61,8 +64,6 @@ def get_forecast(lat, lon):
     response = requests.get(url, params=params)
     return response.json()
 
-today = date.today()
-current_year = today.year
 
 # Collect historical data for the last 5 years
 all_data = []
