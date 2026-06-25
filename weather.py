@@ -16,8 +16,7 @@ CAMP_END_DAY = 14
 today = date.today()
 current_year = today.year
 
-temp_c = current_temp
-temp_f = round(temp_c * 9/5 + 32, 1)
+
 
 def get_historical_weather(lat, lon, start_date, end_date):
     url = "https://archive-api.open-meteo.com/v1/archive"
@@ -46,6 +45,9 @@ def get_current_weather(lat, lon):
 current_data = get_current_weather(LATITUDE, LONGITUDE)
 current_temp = current_data["current"]["temperature_2m"]
 current_time = current_data["current"]["time"]
+
+temp_c = current_temp
+temp_f = round(temp_c * 9/5 + 32, 1)
 
 log_df = pd.DataFrame({
     "date": [str(today)],
