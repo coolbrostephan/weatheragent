@@ -47,7 +47,8 @@ current_time = current_data["current"]["time"]
 log_df = pd.DataFrame({
     "date": [str(today)],
     "time": [current_time],
-    "temperature_2m": [current_temp]
+    "temperature_2m": [temp_c],
+    "temp_f": [temp_f]  # ← just added
 })
 log_file = "daily_log.csv"
 log_df.to_csv(log_file, mode='a', header=not os.path.isfile(log_file), index=False)
@@ -111,3 +112,7 @@ print(forecast_df)
 historical_df.to_csv("historical_weather.csv", index=False)
 forecast_df.to_csv("forecast_weather.csv", index=False)
 print("\nData saved to CSV files.")
+
+temp_c = current_temp
+
+temp_f = round(temp_c * 9/5 + 32, 1)
