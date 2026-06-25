@@ -17,10 +17,6 @@ today = date.today()
 current_year = today.year
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 9fe84fb7088046239fbe8c8255a86fdf8b5d82fa
 def get_historical_weather(lat, lon, start_date, end_date):
     url = "https://archive-api.open-meteo.com/v1/archive"
     params = {
