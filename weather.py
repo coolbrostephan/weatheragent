@@ -151,4 +151,6 @@ def generate_dashboard(df):
     fig.write_html("dashboard.html", include_plotlyjs="cdn")
     print("Dashboard saved to dashboard.html")
 
+print(df.columns.tolist())
+print(df.head())
 generate_dashboard(df)
